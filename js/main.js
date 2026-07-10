@@ -1,9 +1,8 @@
 /* SnapTarget — nav toggle, scroll reveal, contact form */
 "use strict";
 
-/* REPLACE: paste your Formspree form ID (e.g. "mqkvzyzw") to activate the form.
-   Get one free at https://formspree.io — leave "" for demo mode. */
-const FORMSPREE_ID = "";
+/* Formspree form "SnapTarget Contact" — leave "" for demo mode. */
+const FORMSPREE_ID = "mwvdgven";
 
 /* ---------- Mobile navigation ---------- */
 const navToggle = document.querySelector(".nav-toggle");

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-label="Placeholder: cost trade-off curve">
+  <defs>
+    <linearGradient id="c" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4F7CFF"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="200" fill="#131A31"/>
+  <g stroke="#263153" stroke-width="1">
+    <path d="M40 30h290M40 70h290M40 110h290M40 150h290"/>
+  </g>
+  <path d="M40 20v150h290" stroke="#9AA3BF" stroke-width="1.5" fill="none"/>
+  <!-- energy cost (rising) -->
+  <path d="M55 150 C140 140 230 100 320 45" fill="none" stroke="#FF6B8B" stroke-width="2.5" stroke-dasharray="6 5" opacity="0.8"/>
+  <!-- capital cost (falling) -->
+  <path d="M55 40 C140 95 230 125 320 138" fill="none" stroke="#39C6E8" stroke-width="2.5" stroke-dasharray="6 5" opacity="0.8"/>
+  <!-- total cost -->
+  <path d="M55 95 C120 65 165 62 195 70 C245 84 290 105 320 118" fill="none" stroke="url(#c)" stroke-width="4" stroke-linecap="round"/>
+  <!-- optimum -->
+  <circle cx="172" cy="62" r="6" fill="#E6EAF5"/>
+  <path d="M172 62v108" stroke="#E6EAF5" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.6"/>
+  <text x="182" y="52" fill="#9AA3BF" font-family="monospace" font-size="11">optimum</text>
+  <text x="46" y="36" fill="#9AA3BF" font-family="monospace" font-size="11">cost</text>
+  <text x="290" y="185" fill="#9AA3BF" font-family="monospace" font-size="11">&#916;Tmin</text>
+</svg>

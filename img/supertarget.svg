@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-label="Placeholder: composite curves chart">
+  <defs>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF6B8B"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="cold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4F7CFF"/>
+      <stop offset="1" stop-color="#39C6E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="200" fill="#131A31"/>
+  <!-- grid -->
+  <g stroke="#263153" stroke-width="1">
+    <path d="M40 30h290M40 70h290M40 110h290M40 150h290"/>
+    <path d="M40 20v150M112 20v150M184 20v150M256 20v150M328 20v150"/>
+  </g>
+  <!-- axes -->
+  <path d="M40 20v150h290" stroke="#9AA3BF" stroke-width="1.5" fill="none"/>
+  <!-- hot composite -->
+  <path d="M60 40 L150 75 L240 105 L310 130" fill="none" stroke="url(#hot)" stroke-width="4" stroke-linecap="round"/>
+  <!-- cold composite -->
+  <path d="M40 160 L120 140 L230 95 L295 62" fill="none" stroke="url(#cold)" stroke-width="4" stroke-linecap="round"/>
+  <!-- pinch marker -->
+  <circle cx="238" cy="101" r="6" fill="none" stroke="#E6EAF5" stroke-width="2" stroke-dasharray="3 3"/>
+  <text x="250" y="92" fill="#9AA3BF" font-family="monospace" font-size="11">pinch</text>
+  <text x="46" y="36" fill="#9AA3BF" font-family="monospace" font-size="11">T</text>
+  <text x="312" y="185" fill="#9AA3BF" font-family="monospace" font-size="11">H</text>
+</svg>

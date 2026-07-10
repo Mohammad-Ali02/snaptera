@@ -1,7 +1,7 @@
-/* SnapTarget — nav toggle, scroll reveal, contact form */
+/* SnapTera — nav toggle, scroll reveal, contact form */
 "use strict";
 
-/* Formspree form "SnapTarget Contact" — leave "" for demo mode. */
+/* Formspree form "SnapTera Contact" — leave "" for demo mode. */
 const FORMSPREE_ID = "mwvdgven";
 
 /* ---------- Mobile navigation ---------- */
@@ -42,9 +42,11 @@ if (!("IntersectionObserver" in window) || reduceMotion) {
   reveals.forEach((el) => observer.observe(el));
 }
 
-/* ---------- Contact form ---------- */
+/* ---------- Contact form (index page only) ---------- */
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
+
+if (form) {
 
 const validators = {
   name: (v) => (v.trim() ? "" : "Please enter your name."),
@@ -125,3 +127,5 @@ form.addEventListener("submit", async (e) => {
     button.disabled = false;
   }
 });
+
+} // end if (form)

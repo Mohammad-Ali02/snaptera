@@ -1,5 +1,5 @@
 /* ============================================================
-   SnapTarget — design system
+   SnapTera — design system
    Palette: futuristic blue → purple on deep navy
    ============================================================ */
 :root {
@@ -382,6 +382,100 @@ a:hover { color: var(--accent); }
   font-family: var(--font-head);
   font-weight: 600;
   text-decoration: none;
+}
+
+/* Four-card suite grid: 2x2 on desktop */
+.cards-2x2 { grid-template-columns: repeat(2, 1fr); }
+
+/* ============ Manual page ============ */
+.manual-layout {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.manual-toc {
+  position: sticky;
+  top: 5.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.92rem;
+}
+.manual-toc h2 {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.manual-toc ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.manual-toc a { color: var(--muted); text-decoration: none; }
+.manual-toc a:hover { color: var(--text); }
+
+.manual-body h2 {
+  font-size: 1.55rem;
+  margin-top: 2.75rem;
+  scroll-margin-top: 5.5rem;
+}
+.manual-body h2:first-child { margin-top: 0; }
+.manual-body h3 { font-size: 1.15rem; margin-top: 1.75rem; }
+.manual-body p, .manual-body li { color: var(--muted); }
+.manual-body strong { color: var(--text); }
+
+.manual-note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem;
+  margin: 1.25rem 0;
+}
+.manual-note p { margin: 0; }
+
+code, kbd {
+  font-family: "Consolas", "SF Mono", monospace;
+  font-size: 0.88em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  color: var(--text);
+}
+
+.tbl-wrap { overflow-x: auto; margin: 1.25rem 0; }
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 34rem;
+}
+.tbl th, .tbl td {
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+}
+.tbl th {
+  font-family: var(--font-head);
+  font-weight: 600;
+  background: var(--surface-2);
+  color: var(--text);
+  white-space: nowrap;
+}
+.tbl td { color: var(--muted); }
+.tbl tbody tr:nth-child(even) { background: rgba(79, 124, 255, 0.04); }
+
+@media (max-width: 900px) {
+  .manual-layout { grid-template-columns: 1fr; gap: 1.75rem; }
+  .manual-toc { position: static; }
 }
 
 /* ============ Contact ============ */

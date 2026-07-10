@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SnapTarget user manual — installation, workflow, the Streams input sheet, ribbon commands, output sheets, worksheet function reference, methodology and troubleshooting.">
+  <title>SnapTarget User Manual — SnapTera</title>
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohammad-ali02.github.io/snaptera/manual.html">
+  <meta property="og:title" content="SnapTarget User Manual — SnapTera">
+  <meta property="og:description" content="How to use SnapTarget, the pinch-analysis supertargeting Excel add-in: energy, area and cost targets, the ΔTmin trade-off study, and seven live charts.">
+  <meta property="og:image" content="https://mohammad-ali02.github.io/snaptera/img/og-image.png">
+  <link rel="canonical" href="https://mohammad-ali02.github.io/snaptera/manual.html">
+  <meta name="theme-color" content="#0b0f1e">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="SnapTera — home">
+        <img src="img/logo-mark.svg" alt="" width="34" height="34">
+        <span class="brand-name">Snap<span class="brand-accent">Tera</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle navigation menu</span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#suite">The Suite</a></li>
+        <li><a href="manual.html" aria-current="page">Manual</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-sm btn-primary" href="index.html#contact">Work with me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-kicker reveal">SnapTarget · User Manual</p>
+        <h1 class="hero-title reveal" style="font-size: clamp(2rem, 5.5vw, 3.4rem);">HEN supertargeting <span class="gradient-text">in Excel</span></h1>
+        <p class="hero-tagline reveal">
+          Energy, area and cost targets, the ΔT<sub>min</sub> trade-off study and
+          seven live charts — everything recalculates the moment you edit a stream.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="User manual">
+      <div class="container manual-layout">
+
+        <!-- ============ TOC ============ -->
+        <aside class="manual-toc reveal" aria-label="Manual contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#install">Installation</a></li>
+            <li><a href="#quickstart">Quick start</a></li>
+            <li><a href="#streams">The Streams sheet</a></li>
+            <li><a href="#ribbon">Ribbon commands</a></li>
+            <li><a href="#outputs">Output sheets</a></li>
+            <li><a href="#functions">Function reference</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+          </ol>
+        </aside>
+
+        <!-- ============ BODY ============ -->
+        <article class="manual-body">
+
+          <h2 id="overview">1. Overview</h2>
+          <p>
+            <strong>SnapTarget</strong> performs pinch-analysis supertargeting inside
+            Microsoft Excel: minimum hot/cold utility and pinch location
+            (Problem Table Algorithm), counter-current area targets (Bath formula),
+            minimum number of units, shells and F<sub>t</sub> estimates, and a full
+            ΔT<sub>min</sub> trade-off study with two capital-cost models — plus seven
+            live charts, one per sheet.
+          </p>
+          <p>
+            It is a pure-VBA port of a validated Python supertargeting model and
+            reproduces it to machine precision (worst relative deviation
+            4×10<sup>−15</sup> over the full ΔT<sub>min</sub> sweep); the underlying
+            energy and area targets are cross-validated against OpenPinch.
+          </p>
+          <div class="manual-note">
+            <p>
+              <strong>Naming note:</strong> SnapTarget is currently distributed as
+              <code>SuperTarget.xlam</code> (v2.4) and its ribbon tab is labeled
+              <em>SuperTarget</em> — the original name from the graduate research it
+              grew out of. Same tool; the file and ribbon will adopt the SnapTarget
+              name in a future release.
+            </p>
+          </div>
+
+          <h2 id="install">2. Installation</h2>
+          <p><strong>Try it once:</strong> double-click <code>SuperTarget.xlam</code> and enable macros when prompted.</p>
+          <p><strong>Install permanently:</strong> Excel → File → Options → Add-ins →
+             Manage: <em>Excel Add-ins</em> → Go… → Browse… → select the file.
+             If Windows blocks the download, right-click the file → Properties → <strong>Unblock</strong> first.</p>
+          <div class="manual-note">
+            <p>
+              Workbooks created with SnapTarget use its worksheet functions, so they
+              display <code>#NAME?</code> on machines where the add-in is not installed.
+            </p>
+          </div>
+
+          <h2 id="quickstart">3. Quick start</h2>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Step</th><th>Ribbon button</th><th>What you get</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><strong>New Template</strong></td><td>A Streams input workbook, pre-filled with the kerosene hydrotreater demo case (streams CMIX, C3, C4, H1–H3 + economics), plus Credits and License (MIT) sheets.</td></tr>
+                <tr><td>2</td><td>—</td><td>Set ΔT<sub>min</sub> (cell B4) and No. of streams (E4) — the stream table instantly resizes — then enter your streams and adjust the four input boxes.</td></tr>
+                <tr><td>3</td><td><strong>Compute Targets</strong></td><td>The PTA sheet (full heat cascade, pinch highlighted) and the live Results sheet — Pinch &amp; Energy Targets, Area &amp; Units Targets, Cost Targets.</td></tr>
+                <tr><td>4</td><td><strong>Super Targets</strong></td><td>The supertargeting Trade-Off Study sheet (ΔT<sub>min</sub> 0.5–40 °C, both optima highlighted live).</td></tr>
+                <tr><td>5</td><td><strong>Charts</strong></td><td>Seven live charts, one per sheet (auto-builds the trade-off study first if it's missing).</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="manual-note">
+            <p>
+              <strong>Everything except the PTA sheet is live.</strong> The Results table,
+              the Trade-Off Study, the chart curves and even the chart captions are
+              formulas: change a stream, ΔT<sub>min</sub> or an economic parameter and
+              they all recalculate — no button re-run needed. The PTA cascade is a
+              snapshot (its row structure depends on the stream count); re-run
+              <strong>Compute Targets</strong> to refresh it.
+            </p>
+          </div>
+
+          <h2 id="streams">4. The Streams sheet</h2>
+          <p>
+            The input template has the stream table on the left, four labeled input
+            boxes on the right, and two control cells at the top:
+          </p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Input</th><th>Location</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>ΔT<sub>min</sub></td><td>B4</td><td>Minimum approach temperature for targeting (°C).</td></tr>
+                <tr><td>No. of streams</td><td>E4</td><td>Stream count (1–40). Changing it instantly resizes the stream table to that many rows; rows dropped when shrinking are cleared.</td></tr>
+                <tr><td>Stream rows</td><td>A7 down</td><td>Name, Type (hot/cold dropdown — or leave blank to auto-detect from the temperatures), T<sub>s</sub>, T<sub>t</sub> (°C), CP (kW/°C), film coefficient h (kW/m²·°C). The gray <strong>Duty</strong> column shows each stream's heat load |T<sub>s</sub>−T<sub>t</sub>|·CP live.</td></tr>
+                <tr><td>Economics</td><td>J7:J10</td><td>Hot/cold utility cost ($/kW·yr), rate of return, plant life.</td></tr>
+                <tr><td>Area &amp; Capital Cost</td><td>J13:J15</td><td>Fixed cost per unit ($), area cost coefficient and area cost exponent.</td></tr>
+                <tr><td>Utility Temperatures</td><td>J18:J21</td><td>Hot utility T<sub>in</sub>/T<sub>out</sub> and cold utility T<sub>in</sub>/T<sub>out</sub> (°C).</td></tr>
+                <tr><td>Utility Film Coefficients</td><td>J24:J25</td><td>Hot and cold utility h (kW/m²·°C), for heater/cooler area targets.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            The input boxes are found <em>by their label text</em>, so you can move or
+            reorder them without breaking anything.
+          </p>
+
+          <h2 id="ribbon">5. Ribbon commands</h2>
+          <p>The add-in adds one ribbon tab with five buttons:</p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Button</th><th>What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>New Template</strong></td><td>Creates a new stream/economics template workbook, pre-filled with the kerosene hydrotreater demo data.</td></tr>
+                <tr><td><strong>Compute Targets</strong></td><td>Runs the Problem Table Algorithm and full targeting at the chosen ΔT<sub>min</sub>: PTA cascade sheet + live Results sheet.</td></tr>
+                <tr><td><strong>Super Targets</strong></td><td>Builds the supertargeting trade-off study table (ΔT<sub>min</sub> 0.5–40 °C) with both optima live-highlighted.</td></tr>
+                <tr><td><strong>Charts</strong></td><td>Builds the seven live chart sheets (builds the trade-off study first if missing).</td></tr>
+                <tr><td><strong>About</strong></td><td>Model provenance and the list of available worksheet functions.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Re-running any builder regenerates its sheets <strong>in place</strong> —
+            tab order is preserved, so your workbook stays organized.
+          </p>
+
+          <h2 id="outputs">6. Output sheets</h2>
+
+          <h3>PTA — Problem Table Algorithm</h3>
+          <p>
+            Shifted interval temperatures (hot −ΔT<sub>min</sub>/2, cold +ΔT<sub>min</sub>/2),
+            the infeasible cascade whose most-negative value fixes Q<sub>H,min</sub>,
+            and the feasible cascade — zero at the pinch, Q<sub>C,min</sub> at the bottom.
+            The pinch row is highlighted.
+          </p>
+
+          <h3>Results (live)</h3>
+          <p>
+            Three sections — <strong>Pinch &amp; Energy Targets</strong>,
+            <strong>Area &amp; Units Targets</strong>, <strong>Cost Targets</strong>.
+            Every quantity is a live <code>ST_TARGET</code> formula on the
+            ΔT<sub>min</sub> cell.
+          </p>
+
+          <h3>Trade-Off Study (live)</h3>
+          <p>
+            The ΔT<sub>min</sub> sweep, 0.5–40 °C. The <strong>green row</strong> marks the
+            targeting-level optimum (minimum TAC with pure counter-current area); the
+            <strong>blue row</strong> marks the design-adjusted optimum (minimum TAC with
+            F<sub>t</sub> + shells correction). The highlighting is conditional
+            formatting, so it moves automatically when the inputs change.
+          </p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Column group</th><th>Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>Q<sub>H,min</sub> / Q<sub>C,min</sub> / Q<sub>rec</sub></td><td>PTA energy targets and process-to-process heat recovery at each ΔT<sub>min</sub>.</td></tr>
+                <tr><td>Area / N<sub>u</sub></td><td>Bath-formula counter-current area target and minimum number of units (Euler, MER).</td></tr>
+                <tr><td>OPEX / ACAPEX (t) / TAC (t)</td><td>Utility cost, annualized capital and total annualized cost of the targeting-level model.</td></tr>
+                <tr><td>N<sub>sh</sub> / F<sub>t</sub> / Area (F<sub>t</sub>)</td><td>Estimated 1–2 shells, average LMTD correction factor, F<sub>t</sub>-corrected area.</td></tr>
+                <tr><td>ACAPEX (d) / TAC (d)</td><td>Annualized capital and TAC of the design-adjusted model (shells + F<sub>t</sub>).</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Charts (live, one per sheet)</h3>
+          <p>
+            <em>Composite Curves, Shifted Composites, Grand Composite, Trade-Off
+            (Targeting), Trade-Off (Design), Energy Targets, Area Targets.</em>
+            All seven read their data and captions from formulas: titles show the
+            current Q<sub>H</sub>/Q<sub>C</sub>/Q<sub>rec</sub>, pinch and optima and
+            follow every input change.
+          </p>
+
+          <h2 id="functions">7. Worksheet function reference</h2>
+          <p>
+            All functions read the stream table and economics from the
+            <strong>Streams</strong> sheet of the workbook they are used in, and
+            recalculate automatically. They work in any workbook created by
+            <strong>New Template</strong>.
+          </p>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Function</th><th>Returns</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><code>ST_TARGET(dtmin, key)</code></td><td>Any single target at the given ΔT<sub>min</sub> — see the key table below.</td><td><code>=ST_TARGET(8, "tac_d")</code> → 395,320</td></tr>
+                <tr><td><code>ST_QHMIN(dtmin)</code></td><td>Minimum hot utility (kW).</td><td><code>=ST_QHMIN(8)</code> → 2,483.3</td></tr>
+                <tr><td><code>ST_QCMIN(dtmin)</code></td><td>Minimum cold utility (kW).</td><td><code>=ST_QCMIN(8)</code> → 934.9</td></tr>
+                <tr><td><code>ST_PINCH(dtmin)</code></td><td>Pinch temperature, shifted scale (°C).</td><td><code>=ST_PINCH(8)</code> → 56.0</td></tr>
+                <tr><td><code>ST_AREA(dtmin)</code></td><td>Counter-current area target (m²).</td><td><code>=ST_AREA(8)</code> → 2,863.1</td></tr>
+                <tr><td><code>ST_UNITS(dtmin)</code></td><td>Minimum number of units (–).</td><td><code>=ST_UNITS(8)</code> → 10</td></tr>
+                <tr><td><code>ST_TAC(dtmin, [model])</code></td><td>Total annualized cost; model <code>"d"</code> (default, design-adjusted) or <code>"t"</code> (targeting).</td><td><code>=ST_TAC(8, "t")</code> → 361,309</td></tr>
+                <tr><td><code>ST_OPT(model, what)</code></td><td>Optimum of the 0.5–40 °C sweep; model <code>"t"</code>/<code>"d"</code>; what <code>"dt"</code>, <code>"tac"</code> or <code>"tacmax"</code>.</td><td><code>=ST_OPT("d", "dt")</code> → 8.0</td></tr>
+                <tr><td><code>ST_PINCHH(dtmin)</code></td><td>Hot-composite enthalpy at the hot pinch temperature (kW) — x-position of the pinch marker.</td><td><code>=ST_PINCHH(8)</code></td></tr>
+                <tr><td><code>ST_CURVE(kind, dtmin)</code></td><td>60×2 curve block (X, Y) padded with <code>#N/A</code>; kind <code>"hot"</code>, <code>"coldshift"</code>, <code>"gcc"</code>, <code>"hot_s"</code> or <code>"cold_s"</code>. Enter over a 60-row × 2-column range.</td><td><code>=ST_CURVE("gcc", 8)</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Keys accepted by <code>ST_TARGET</code></h3>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Key</th><th>Quantity</th><th>Units</th></tr></thead>
+              <tbody>
+                <tr><td><code>qh</code> / <code>qc</code></td><td>Minimum hot / cold utility</td><td>kW</td></tr>
+                <tr><td><code>qrec</code></td><td>Heat recovery (process–process)</td><td>kW</td></tr>
+                <tr><td><code>qhot_total</code></td><td>Total hot-stream duty</td><td>kW</td></tr>
+                <tr><td><code>area</code> / <code>area_ft</code></td><td>Area target (counter-current / F<sub>t</sub>-corrected)</td><td>m²</td></tr>
+                <tr><td><code>nu</code></td><td>Minimum units (Euler MER)</td><td>–</td></tr>
+                <tr><td><code>nsh</code></td><td>Number of 1–2 shells</td><td>–</td></tr>
+                <tr><td><code>ft</code></td><td>LMTD correction factor</td><td>–</td></tr>
+                <tr><td><code>opex</code></td><td>Utility operating cost</td><td>$/yr</td></tr>
+                <tr><td><code>acapex_t</code> / <code>acapex_d</code></td><td>Annualized capital, targeting / design-adjusted</td><td>$/yr</td></tr>
+                <tr><td><code>tac_t</code> / <code>tac_d</code></td><td>Total annualized cost, targeting / design-adjusted</td><td>$/yr</td></tr>
+                <tr><td><code>pinch</code> / <code>pinch_hot</code> / <code>pinch_cold</code></td><td>Pinch temperature (shifted / hot side / cold side)</td><td>°C</td></tr>
+                <tr><td><code>crf</code></td><td>Capital recovery factor</td><td>–</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="methodology">8. Methodology &amp; validation</h2>
+          <ul class="card-list">
+            <li><strong>Energy targets:</strong> Problem Table Algorithm on shifted temperatures.</li>
+            <li><strong>Area target:</strong> Bath formula (vertical heat-transfer model) on balanced composite curves with the Chen LMTD approximation and stream-individual film coefficients.</li>
+            <li><strong>Units target:</strong> Euler (N−1) with MER pinch decomposition.</li>
+            <li><strong>Design adjustment:</strong> shells power-law and F<sub>t</sub> = 1 − 0.8·exp(−0.25·ΔT<sub>min</sub>), floored at 0.30 (Ahmad–Linnhoff–Smith supertargeting).</li>
+            <li><strong>Economics:</strong> per-unit capital cost law annualized with the capital recovery factor.</li>
+          </ul>
+          <p>
+            The two cost models bracket reality: the <strong>targeting-level</strong>
+            model assumes pure counter-current exchangers at the minimum unit count,
+            so its optimum sits at a very small ΔT<sub>min</sub>; the
+            <strong>design-adjusted</strong> model adds the F<sub>t</sub> correction and
+            a shells estimate, which penalizes small approach temperatures and moves
+            the optimum to a practical value — in agreement with the Aspen Energy
+            Analyzer result (≈ 9 °C) for the demo plant.
+          </p>
+          <p>
+            The VBA engine reproduces its validated Python parent model — 34
+            ΔT<sub>min</sub> points × 14 quantities — to a worst relative deviation of
+            4×10<sup>−15</sup> (machine precision); energy targets agree with OpenPinch
+            within 0.04 % and area targets within 6 %.
+          </p>
+
+          <h2 id="troubleshooting">9. Troubleshooting</h2>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Symptom</th><th>Cause &amp; fix</th></tr></thead>
+              <tbody>
+                <tr><td>Ribbon tab doesn't appear</td><td>Macros are disabled or the file is blocked. Enable macros when prompted, or right-click the <code>.xlam</code> → Properties → <strong>Unblock</strong>, then re-open Excel.</td></tr>
+                <tr><td><code>#NAME?</code> in results cells</td><td>The add-in isn't installed on this machine — the workbook's formulas call its functions. Install the <code>.xlam</code> (section 2).</td></tr>
+                <tr><td><code>#VALUE!</code> from a function</td><td>No <strong>Streams</strong> sheet in the workbook, a malformed stream table (missing temperatures/CP), or ΔT<sub>min</sub> ≤ 0. Fix the inputs; the functions recover automatically.</td></tr>
+                <tr><td>Results don't update after editing streams</td><td>Calculation is set to Manual — press <kbd>F9</kbd> or switch Formulas → Calculation Options → Automatic. Remember the PTA sheet is a snapshot: re-run <strong>Compute Targets</strong>.</td></tr>
+                <tr><td>Stream table has the wrong number of rows</td><td>Set the <strong>No. of streams</strong> box (E4) — the table resizes itself; rows dropped when shrinking are cleared.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Questions, bug reports or feature requests:
+            <a href="mailto:atsnaptera@gmail.com">atsnaptera@gmail.com</a>.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Mohammed Ali Mansoury · SnapTera</p>
+      <ul class="footer-links" aria-label="Contact links">
+        <li><a href="mailto:atsnaptera@gmail.com">atsnaptera@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/mohammad-ali-3b3852256" rel="me noopener" target="_blank">LinkedIn</a></li>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

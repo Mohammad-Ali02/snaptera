@@ -3,11 +3,12 @@
 Brand site of **Mohammed Ali Mansoury** — process & energy optimization
 software and engineering under the **SnapTera** umbrella:
 
-- **SnapTarget** — pinch-analysis supertargeting Excel add-in (available;
-  see [manual.html](manual.html) for the user manual)
+- **SnapTarget** — pinch-analysis supertargeting Excel add-in
+  (see [manual.html](manual.html) for the user manual)
 - **SnapOpt** — superstructure MINLP HEN optimization powered by the SSGO
-  engine (in development)
-- **SnapNet** — HEN grid-diagram drawing and figure export (in development)
+  engine ([user guide PDF](downloads/SnapOpt_User_Guide.pdf))
+- **SnapNet** — HEN grid-diagram drawing and figure export
+  ([user guide PDF](downloads/SnapNet_User_Guide.pdf))
 - Consulting — pinch studies, retrofit screening, design review
 
 *SnapTera: From Targeting to Optimization to Network Design.*

@@ -1,6 +1,9 @@
 /* SnapTera — nav toggle, scroll reveal, contact form */
 "use strict";
 
+/* JS is running: drop the no-js fallback so reveal-on-scroll can animate */
+document.documentElement.classList.remove("no-js");
+
 /* Formspree form "SnapTera Contact" — leave "" for demo mode. */
 const FORMSPREE_ID = "mwvdgven";
 

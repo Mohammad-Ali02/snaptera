@@ -143,7 +143,12 @@ a:hover { color: var(--accent); }
   font-size: 1.25rem;
   color: var(--text);
 }
-.brand-accent { color: var(--primary); }
+.brand-accent {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
 .nav-menu {
   display: flex;
@@ -310,7 +315,7 @@ a:hover { color: var(--accent); }
 /* ============ Cards ============ */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.75rem;
 }
 
@@ -384,8 +389,91 @@ a:hover { color: var(--accent); }
   text-decoration: none;
 }
 
-/* Four-card suite grid: 2x2 on desktop */
-.cards-2x2 { grid-template-columns: repeat(2, 1fr); }
+/* ============ Product pages ============ */
+.hero-title-sub { font-size: clamp(2rem, 5.5vw, 3.4rem); }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.product-grid .card-list { margin-bottom: 0; font-size: 1rem; }
+
+.product-art {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.file-hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.75rem 0 0;
+}
+
+.suite-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.suite-step {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.25s, border-color 0.25s;
+}
+.suite-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 104, 255, 0.55);
+  color: var(--text);
+}
+.suite-step[aria-current="page"] {
+  border-color: var(--primary);
+  background: rgba(79, 124, 255, 0.08);
+}
+.suite-step-kicker {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+}
+.suite-step-name {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 0.15rem;
+}
+.suite-step p:last-child {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .product-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .product-grid .product-art { order: -1; }
+  .suite-strip { grid-template-columns: 1fr; }
+}
+
+/* Odd card out (5th) sits centered on its own row while the grid is 2-wide */
+@media (min-width: 641px) {
+  .cards > .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.875rem);
+  }
+}
 
 /* ============ Manual page ============ */
 .manual-layout {
@@ -594,10 +682,6 @@ code, kbd {
 }
 
 /* ============ Responsive ============ */
-@media (max-width: 1024px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
 

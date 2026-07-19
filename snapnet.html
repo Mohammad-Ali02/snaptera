@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SnapNet — automatic heat exchanger network grid diagrams from SnapOpt solutions: duties, areas, temperatures and stream splits, publication-ready. Download the user guide.">
+  <title>SnapNet — HEN Grid Diagrams — SnapTera</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohammad-ali02.github.io/snaptera/snapnet.html">
+  <meta property="og:title" content="SnapNet — HEN Grid Diagrams — SnapTera">
+  <meta property="og:description" content="Turns the optimized matches into the final deliverable — the heat exchanger network diagram, publication-ready.">
+  <meta property="og:image" content="https://mohammad-ali02.github.io/snaptera/img/og-image.png">
+  <link rel="canonical" href="https://mohammad-ali02.github.io/snaptera/snapnet.html">
+  <meta name="theme-color" content="#0b0f1e">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="SnapTera — home">
+        <img src="img/logo-mark.svg" alt="" width="34" height="34">
+        <span class="brand-name">Snap<span class="brand-accent">Tera</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle navigation menu</span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#suite">The Suite</a></li>
+        <li><a href="manual.html">Manual</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-sm btn-primary" href="index.html#contact">Work with me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-kicker reveal">The SnapTera Suite · Network Design</p>
+        <h1 class="hero-title hero-title-sub reveal">Snap<span class="gradient-text">Net</span></h1>
+        <p class="hero-tagline reveal">
+          Turns the optimized matches into the final deliverable — the heat
+          exchanger network grid diagram, publication-ready.
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="downloads/SnapNet_User_Guide.pdf" type="application/pdf">Download the user guide (PDF)</a>
+          <a class="btn btn-ghost" href="index.html#contact">Ask about SnapNet</a>
+        </div>
+        <p class="file-hint reveal">PDF · 3 pages · ~0.6 MB · v1.0, July 2026</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sn-what">
+      <div class="container">
+        <p class="section-kicker reveal">What it does</p>
+        <h2 class="section-title reveal" id="sn-what">From solution to drawing.</h2>
+
+        <div class="product-grid">
+          <div class="reveal">
+            <p>
+              SnapNet reads the <code>solution.json</code> a SnapOpt run
+              exports and draws the classic HEN grid diagram — hot streams on
+              top, cold below, every exchanger annotated. What used to be an
+              afternoon of careful hand-drawing becomes one command.
+            </p>
+            <ul class="card-list">
+              <li>Automatic HEN grid diagram drawing from SnapOpt solutions</li>
+              <li>Duties, areas &amp; stage temperatures annotated on the grid</li>
+              <li>Automatic split detection with duty fractions &amp; mix temperatures</li>
+              <li>Utility heaters and coolers placed on the grid</li>
+              <li>Thesis-figure styling out of the box</li>
+              <li>Publication-ready PNG / SVG / PDF export</li>
+            </ul>
+          </div>
+          <img class="product-art reveal" src="img/snapnet.svg" alt="Illustration of a heat exchanger network grid diagram" width="360" height="200">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="sn-suite">
+      <div class="container">
+        <p class="section-kicker reveal">How it fits</p>
+        <h2 class="section-title reveal" id="sn-suite">Target. Optimize. Design.</h2>
+        <div class="suite-strip">
+          <a class="suite-step reveal" href="snaptarget.html">
+            <p class="suite-step-kicker">Step 1 · Target</p>
+            <p class="suite-step-name">SnapTarget</p>
+            <p>Set the energy, area and cost targets in Excel.</p>
+          </a>
+          <a class="suite-step reveal" href="snapopt.html">
+            <p class="suite-step-kicker">Step 2 · Optimize</p>
+            <p class="suite-step-name">SnapOpt</p>
+            <p>Find the cost-optimal network with the SSGO engine.</p>
+          </a>
+          <a class="suite-step reveal" href="snapnet.html" aria-current="page">
+            <p class="suite-step-kicker">Step 3 · Design</p>
+            <p class="suite-step-name">SnapNet</p>
+            <p>Draw the final HEN grid diagram automatically.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Mohammed Ali Mansoury · SnapTera</p>
+      <ul class="footer-links" aria-label="Contact links">
+        <li><a href="mailto:atsnaptera@gmail.com">atsnaptera@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/mohammad-ali-3b3852256" rel="me noopener" target="_blank">LinkedIn</a></li>
+        <li><a href="manual.html">SnapTarget manual</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

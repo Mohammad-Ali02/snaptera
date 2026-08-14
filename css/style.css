@@ -740,6 +740,12 @@ code, kbd {
 [data-launch="running"] .launch-msg-running,
 [data-launch="stopped"] .launch-msg-stopped { display: inline; }
 
+/* The script also sets [hidden], which must win over the rules above — a
+   display value otherwise overrides the attribute. Same specificity, so this
+   has to stay after them. */
+.launch-msg[hidden],
+.card-launch[hidden] { display: none; }
+
 .launch-dot {
   width: 8px;
   height: 8px;

@@ -34,9 +34,23 @@
     }
   };
 
+  const PREFIX = "launch-msg-";
+
   const setState = (state) => {
     document.querySelectorAll("[data-launch]").forEach((el) => {
       el.dataset.launch = state;
+    });
+
+    // Belt and braces: drive visibility from the attribute too, not from CSS
+    // alone. A returning visitor can hold a cached stylesheet for as long as
+    // its max-age, and with the old CSS every message would render at once —
+    // the page would look broken precisely when someone came back to it.
+    document.querySelectorAll(".launch-msg").forEach((el) => {
+      const owner = [...el.classList].find((c) => c.startsWith(PREFIX));
+      if (owner) el.hidden = owner.slice(PREFIX.length) !== state;
+    });
+    document.querySelectorAll(".card-launch").forEach((el) => {
+      el.hidden = state !== "running";
     });
   };
 

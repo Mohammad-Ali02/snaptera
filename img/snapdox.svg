@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-label="Illustration: a PDF page converting into a Word document, with other supported formats below">
+  <defs>
+    <linearGradient id="d" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4F7CFF"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="200" fill="#131A31"/>
+  <text x="30" y="32" fill="#9AA3BF" font-family="monospace" font-size="11">convert · locally</text>
+
+  <!-- source page -->
+  <g>
+    <rect x="42" y="52" width="86" height="106" rx="6" fill="#0B0F1E" stroke="#2C3446" stroke-width="1.5"/>
+    <path d="M110 52l18 18h-18z" fill="#2C3446"/>
+    <g stroke="#FF6B8B" stroke-width="3" stroke-linecap="round" opacity="0.85">
+      <path d="M56 78h42"/>
+    </g>
+    <g stroke="#3A4358" stroke-width="2.5" stroke-linecap="round">
+      <path d="M56 94h58"/><path d="M56 106h58"/><path d="M56 118h40"/>
+      <path d="M56 132h58"/><path d="M56 144h30"/>
+    </g>
+    <text x="85" y="176" fill="#FF6B8B" font-family="monospace" font-size="11" text-anchor="middle">PDF</text>
+  </g>
+
+  <!-- conversion arrow -->
+  <g>
+    <path d="M148 105h52" stroke="url(#d)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M206 105l-12 -7v14z" fill="#A855F7"/>
+    <circle cx="174" cy="105" r="15" fill="#131A31" stroke="url(#d)" stroke-width="2"/>
+    <path d="M168 105l4 4l8 -9" stroke="#4F7CFF" stroke-width="2.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- result page -->
+  <g>
+    <rect x="230" y="52" width="86" height="106" rx="6" fill="#0B0F1E" stroke="url(#d)" stroke-width="1.5"/>
+    <g stroke="#4F7CFF" stroke-width="3" stroke-linecap="round" opacity="0.9">
+      <path d="M244 78h42"/>
+    </g>
+    <g stroke="#4A5570" stroke-width="2.5" stroke-linecap="round">
+      <path d="M244 94h58"/><path d="M244 106h58"/><path d="M244 118h40"/>
+      <path d="M244 132h58"/><path d="M244 144h30"/>
+    </g>
+    <text x="273" y="176" fill="#4F7CFF" font-family="monospace" font-size="11" text-anchor="middle">DOCX</text>
+  </g>
+</svg>

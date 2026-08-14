@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SnapDox — convert PDF, Word, Office documents and images on your own machine. PDF to Word, PNG to SVG, and more. Free and open source, nothing is uploaded.">
+  <title>SnapDox — Local Document &amp; Image Conversion — SnapTera</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohammad-ali02.github.io/snaptera/snapdox.html">
+  <meta property="og:title" content="SnapDox — Local Document &amp; Image Conversion — SnapTera">
+  <meta property="og:description" content="PDF to Word, images to SVG, and every Office format in between — converted on your own machine, with nothing uploaded anywhere.">
+  <meta property="og:image" content="https://mohammad-ali02.github.io/snaptera/img/og-image.png">
+  <link rel="canonical" href="https://mohammad-ali02.github.io/snaptera/snapdox.html">
+  <meta name="theme-color" content="#0b0f1e">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="img/logo-mark.svg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="SnapTera — home">
+        <img src="img/logo-mark.svg" alt="" width="34" height="34">
+        <span class="brand-name">Snap<span class="brand-accent">Tera</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Toggle navigation menu</span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#suite">The Suite</a></li>
+        <li><a href="manual.html">Manual</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="btn btn-sm btn-primary" href="index.html#contact">Work with me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-kicker reveal">The SnapTera Suite · Utilities</p>
+        <h1 class="hero-title hero-title-sub reveal">Snap<span class="gradient-text">Dox</span></h1>
+        <p class="hero-tagline reveal">
+          PDF to Word, images to SVG, and every Office format in between —
+          converted on your own machine, with nothing uploaded anywhere.
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="https://github.com/Mohammad-Ali02/SnapDox" rel="noopener" target="_blank">Get it on GitHub</a>
+          <a class="btn btn-ghost" href="index.html#contact">Ask about SnapDox</a>
+        </div>
+        <p class="file-hint reveal">Free &amp; open source · Windows, macOS, Linux · v1.0, August 2026</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sd-what">
+      <div class="container">
+        <p class="section-kicker reveal">What it does</p>
+        <h2 class="section-title reveal" id="sd-what">Your files never leave the room.</h2>
+
+        <div class="product-grid">
+          <div class="reveal">
+            <p>
+              Online converters ask you to upload the document first. For a
+              contract, a drawing or an unpublished report, that is the whole
+              problem. SnapDox runs the conversion locally — a drag-and-drop
+              page in your browser, or a <code>snapdox</code> command for
+              batches — so nothing is transmitted, and there are no page
+              limits, watermarks or queues.
+            </p>
+            <ul class="card-list">
+              <li>PDF ↔ Word, with three layout modes for different documents</li>
+              <li>Word, Excel, PowerPoint, ODF, RTF, HTML → PDF</li>
+              <li>PDF → PNG, JPEG, TIFF, WebP at any resolution</li>
+              <li>PNG/JPEG → SVG by real vector tracing, not an embedded bitmap</li>
+              <li>Markdown and EPUB in and out, via Pandoc</li>
+              <li>Formats with no direct route are chained automatically</li>
+              <li>Reachable from your phone on the same Wi-Fi</li>
+            </ul>
+          </div>
+          <img class="product-art reveal" src="img/snapdox.svg" alt="Illustration of a PDF page being converted into a Word document" width="360" height="200">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="sd-pdf">
+      <div class="container">
+        <p class="section-kicker reveal">PDF to Word</p>
+        <h2 class="section-title reveal" id="sd-pdf">The conversion everyone gets wrong.</h2>
+        <p class="section-lead reveal">
+          Most converters try to detect tables that were never there. On an
+          ordinary two-column document that guess reads the columns as table
+          cells and shreds the paragraphs across them. SnapDox lets you pick
+          what the page actually is.
+        </p>
+        <div class="suite-strip">
+          <div class="suite-step reveal">
+            <p class="suite-step-kicker">Default · Flowing text</p>
+            <p class="suite-step-name">Keeps the layout</p>
+            <p>Paragraphs, images and genuinely bordered tables. Right for almost every document.</p>
+          </div>
+          <div class="suite-step reveal">
+            <p class="suite-step-kicker">Option · Detect tables</p>
+            <p class="suite-step-name">For grids</p>
+            <p>Also finds borderless tables — the right call for invoices, statements and datasheets.</p>
+          </div>
+          <div class="suite-step reveal">
+            <p class="suite-step-kicker">Option · Plain text</p>
+            <p class="suite-step-name">Easiest to edit</p>
+            <p>Clean reading order, layout discarded. Columns are read down one side, then the other.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sd-honest">
+      <div class="container">
+        <p class="section-kicker reveal">What it will not do</p>
+        <h2 class="section-title reveal" id="sd-honest">A scan is not a document.</h2>
+        <div class="product-grid">
+          <div class="reveal">
+            <p>
+              A scanned PDF is a photograph of a page. There is no text inside
+              it to recover, so converting one to Word can only ever produce a
+              document containing a picture. SnapDox detects that case and says
+              so, rather than handing back something that looks converted and
+              is not. Convert it to images instead, or run OCR first.
+            </p>
+            <p>
+              Encrypted PDFs are handled the same way: SnapDox asks for the
+              password rather than failing with a stack trace. It is a local
+              tool with no accounts, no telemetry and no upload step — the
+              conversion happens on your hardware and the result stays there.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Mohammed Ali Mansoury · SnapTera · SnapDox is free and open source; the rest of the suite is proprietary software, licensed per named user — see the End User Licence Agreement in each product’s user guide.</p>
+      <ul class="footer-links" aria-label="Contact links">
+        <li><a href="mailto:atsnaptera@gmail.com">atsnaptera@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/mohammad-ali-3b3852256" rel="me noopener" target="_blank">LinkedIn</a></li>
+        <li><a href="manual.html">SnapTarget manual</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

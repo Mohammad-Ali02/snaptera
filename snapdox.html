@@ -59,9 +59,31 @@
           converted on your own machine, with nothing uploaded anywhere.
         </p>
         <div class="hero-cta reveal">
-          <a class="btn btn-primary" href="https://github.com/Mohammad-Ali02/SnapDox" rel="noopener" target="_blank">Get it on GitHub</a>
-          <a class="btn btn-ghost" href="index.html#contact">Ask about SnapDox</a>
+          <a class="btn btn-primary" href="http://localhost:5000" data-launch-link rel="noopener" target="_blank">Launch SnapDox</a>
+          <a class="btn btn-ghost" href="https://github.com/Mohammad-Ali02/SnapDox" rel="noopener" target="_blank">Get it on GitHub</a>
         </div>
+
+        <p class="launch-status reveal" data-launch="unknown">
+          <span class="launch-dot" aria-hidden="true"></span>
+          <span class="launch-msg launch-msg-unknown">Runs on your computer — install it, then Launch opens it here.</span>
+          <span class="launch-msg launch-msg-checking">Checking whether SnapDox is running…</span>
+          <span class="launch-msg launch-msg-running">Running on this computer — Launch opens it in a new tab.</span>
+          <span class="launch-msg launch-msg-stopped">Not running on this computer yet.</span>
+        </p>
+
+        <div class="launch-help" id="launch-help" tabindex="-1" hidden>
+          <p>SnapDox converts files on your own machine, so it has to be running there first:</p>
+          <div class="launch-cmd">
+            <code>python serve.py</code>
+            <button class="btn btn-sm btn-ghost" type="button" data-copy="python serve.py">Copy</button>
+          </div>
+          <p class="file-hint">
+            Run that from the SnapDox folder, then
+            <a href="http://localhost:5000" rel="noopener" target="_blank">open it at localhost:5000</a>.
+            Not installed yet? <a href="https://github.com/Mohammad-Ali02/SnapDox" rel="noopener" target="_blank">Get it on GitHub</a> — it's free.
+          </p>
+        </div>
+
         <p class="file-hint reveal">Free &amp; open source · Windows, macOS, Linux · v1.0, August 2026</p>
       </div>
     </section>
@@ -163,5 +185,6 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="js/launch.js" defer></script>
 </body>
 </html>

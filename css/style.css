@@ -714,3 +714,83 @@ code, kbd {
   .contact-form { padding: 1.4rem; }
   .footer-inner { justify-content: center; text-align: center; }
 }
+
+/* ============ SnapDox launch state ============
+   SnapDox runs on the visitor's own machine, so the page reports whether it
+   is really running before the Launch button promises anything. States are
+   driven by data-launch, set from js/launch.js. */
+
+.launch-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+/* Only the message matching the current state shows. With JS disabled the
+   element keeps state "unknown", which reads as a plain factual line. */
+.launch-msg { display: none; }
+[data-launch="unknown"] .launch-msg-unknown,
+[data-launch="checking"] .launch-msg-checking,
+[data-launch="running"] .launch-msg-running,
+[data-launch="stopped"] .launch-msg-stopped { display: inline; }
+
+.launch-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex: none;
+}
+[data-launch="running"] .launch-dot {
+  background: var(--success);
+  box-shadow: 0 0 0 4px rgba(79, 214, 165, 0.16);
+}
+[data-launch="stopped"] .launch-dot { background: var(--error); }
+[data-launch="checking"] .launch-dot { animation: launch-pulse 1.1s ease-in-out infinite; }
+
+@keyframes launch-pulse {
+  50% { opacity: 0.25; }
+}
+
+.launch-help {
+  width: min(100% - 2.5rem, 34rem);
+  margin: 1.25rem auto 0;
+  padding: 1.15rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+  text-align: left;
+}
+.launch-help:focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+.launch-help p { margin: 0 0 0.75rem; }
+.launch-help .file-hint { margin: 0.75rem 0 0; }
+
+.launch-cmd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  background: #0b0f1e;
+  border: 1px solid var(--border);
+}
+.launch-cmd code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* Home-page card affordance — only meaningful once SnapDox answers. */
+.card-launch { display: none; }
+[data-launch="running"] .card-launch { display: inline-block; margin-left: 0.9rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-launch="checking"] .launch-dot { animation-duration: 3s; }
+}
